@@ -12,4 +12,6 @@ install:
 
 # command to run tests
 script:
-  - pytest -v *_tests.py
+#  - pytest -v *_tests.py
+  - coverage run -m pytest -v
+  - coverage report --include="sample_backend.py"
