@@ -14,4 +14,4 @@ install:
 script:
 #  - pytest -v *_tests.py
   - coverage run -m pytest -v
-  - coverage report --include="sample_backend.py"
+  - coverage report -m --include="sample_backend.py"
