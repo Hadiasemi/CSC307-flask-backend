@@ -83,8 +83,7 @@ def get_user(id):
                 # 204 is the default code for a normal response, no other input returned
                 resp = jsonify({}), 204
                 return resp
-            else:
-                return jsonify({"error": "User not found"}), 404
+        return jsonify({"error": "User not found"}), 404
 
 
 def find_users_by_name_job(name, job):
