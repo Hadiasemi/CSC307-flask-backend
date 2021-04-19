@@ -34,7 +34,7 @@ def hello_world():
 #   return random_id
 
 
-@app.route('/users', methods=['GET', 'POST', 'DELETE'])
+@app.route('/users', methods=['GET', 'POST'])
 def get_users():
     if request.method == 'GET':
         search_username = request.args.get('name')
@@ -57,13 +57,6 @@ def get_users():
         newUser = User(userToAdd)
         newUser.save()
         resp = jsonify(newUser), 201
-        return resp
-    elif request.method == 'DELETE':
-        userToDelete = request.get_json()
-        users['users_list'].remove(userToDelete)
-        resp = jsonify(success=True)
-        resp.status_code = 200
-        # 200 is the default code for a normal response
         return resp
 
 
