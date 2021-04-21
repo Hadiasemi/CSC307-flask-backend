@@ -1,24 +1,25 @@
 import pytest
 import sample_backend
+from model_mongodb import User
 
-def test_find_users_by_name_success():  
-    expected = { 
-        'users_list' :
-        [
-            {
-                'id' : 'abc123',            
-                'name': 'Mac',
-                'job': 'Bouncer',
-            },
-            {
-                'id' : 'ppp222',            
-                'name': 'Mac',
-                'job': 'Professor',
-            },        
-        ]
-    }  
-    assert sample_backend.find_users_by_name("Mac") == expected
 
-def test_find_users_by_name_fail():  
-    expected = {'users_list' : []}
-    assert sample_backend.find_users_by_name("Jeff") == expected
+def test_find_users_by_name_success():
+    expected = ([
+        {
+            '_id': '6009dc44f29c1feab0ec29a4',
+            'name': 'Mac',
+            'job': 'Bouncer',
+        },
+        {
+            '_id': '6009dfa508f2eca30c87d56c',
+            'name': 'Mac',
+            'job': 'Professor',
+        },
+    ])
+
+    assert User().find_by_name("Mac") == expected
+
+
+def test_find_users_by_name_fail():
+    expected = []
+    assert User().find_by_name("Jeff") == expected
