@@ -1,0 +1,15 @@
+#!/bin/bash
+
+. ../venv/bin/activate
+
+if [ $# -eq 0 ]; then
+  echo export FLASK_APP=sample_backend.py
+  export FLASK_APP=sample_backend.py
+else
+  echo export FLASK_APP=$1
+  export FLASK_APP=$1
+fi
+
+export FLASK_ENV=development
+
+flask run

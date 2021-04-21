@@ -40,11 +40,11 @@ def get_users():
         search_username = request.args.get('name')
         search_job = request.args.get('job')
         if search_username and search_job:
-            return find_users_by_name_job(search_username, search_job)
+            users = User().find_by_name_and_job(search_username, search_job)
         elif search_username:  # updated for db_access
             users = User().find_by_name(search_username)
         elif search_job:
-            return find_users_by_job(search_job)
+            users = User().find_by_job(search_job)
         else:  # updated for db_access
             users = User().find_all()
         return {"users_list": users}
@@ -70,26 +70,27 @@ def get_user(id):
         else:
             return jsonify({"error": "User not found"}), 404
     elif request.method == 'DELETE':
-        for user in users['users_list']:
-            if user['id'] == id:
-                users['users_list'].remove(user)
-                # 204 is the default code for a normal response, no other input returned
-                resp = jsonify({}), 204
-                return resp
-        return jsonify({"error": "User not found"}), 404
+        user = User({"_id": id})
+        resp = user.remove()
+        if (resp['n'] == 1):
+            return {}, 204
+        else:
+            return jsonify({"error": "User not found"}), 404
 
 
-def find_users_by_name_job(name, job):
-    subdict = {'users_list': []}
-    for user in users['users_list']:
-        if user['name'] == name and user['job'] == job:
-            subdict['users_list'].append(user)
-    return subdict
+# remove as we refactor these into the final version and move the functions into model_mogodb
+#
+# def find_users_by_name_job(name, job):
+#     subdict = {'users_list': []}
+#     for user in users['users_list']:
+#         if user['name'] == name and user['job'] == job:
+#             subdict['users_list'].append(user)
+#     return subdict
 
 
-def find_users_by_job(job):
-    subdict = {'users_list': []}
-    for user in users['users_list']:
-        if user['job'] == job:
-            subdict['users_list'].append(user)
-    return subdict
+# def find_users_by_job(job):
+#     subdict = {'users_list': []}
+#     for user in users['users_list']:
+#         if user['job'] == job:
+#             subdict['users_list'].append(user)
+#     return subdict
