@@ -1,5 +1,11 @@
 import pymongo
 from bson import ObjectId
+# import dns from dnspython to yuse mongodb+srv URI
+import dns
+# import os to get env variables
+import os
+# import dotenv to hide Atlas Credentials
+from dotenv import load_dotenv
 
 
 class Model(dict):
@@ -35,8 +41,12 @@ class Model(dict):
 
 
 class User(Model):
-    # change if your db is in another host and port
-    db_client = pymongo.MongoClient('localhost', 27017)
+    load_dotenv()  # take environment variables from .env.
+    MONGODB_URI = os.environ['MONGODB_URI']
+
+    # print(f'MONGODB_URI: {MONGODB_URI}')
+
+    db_client = pymongo.MongoClient(MONGODB_URI)
     # db name is 'users' and collection name is 'users_list'
     collection = db_client["users"]["users_list"]
 
