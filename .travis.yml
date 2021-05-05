@@ -3,7 +3,7 @@ python:
   # - "2.7"
   # - "3.4"
   # - "3.5"
-  - "3.6"      # current default Python on Travis CI
+  - "3.6" # current default Python on Travis CI
   - "3.7"
 
 # command to install dependencies
@@ -12,6 +12,6 @@ install:
 
 # command to run tests
 script:
-#  - pytest -v *_tests.py
+  #  - pytest -v *_tests.py
   - coverage run -m pytest -v
   - coverage report -m --include="sample_backend.py"

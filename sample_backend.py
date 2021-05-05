@@ -63,7 +63,7 @@ def get_users():
 @app.route('/users/<id>', methods=['GET', 'DELETE'])
 def get_user(id):
     if request.method == 'GET':
-       # update for db access
+        # update for db access
         user = User({"_id": id})
         if user.reload():
             return user
