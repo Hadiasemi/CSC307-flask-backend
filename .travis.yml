@@ -1,11 +1,9 @@
 language: python
 python:
-- '3.6'
-- '3.7'
+  - "3.6"
+  - "3.7"
 install:
-- pip install -r requirements.txt
+  - pip install -r requirements.txt
 script:
-- coverage run -m pytest -v
-- coverage report -m --include="sample_backend.py"
-env:
-  secure: uzgDdzH8DJg1clMjENf5/uk7JBJOBouHHpQwgRnMWJBraSHDP7UAPCS1r2ezh7x1acUYs9lalqX6PV1Py5BWg0P0LgLLmmdD0t6xJUvWd504OWg4XC7/IEM4xwzxgSt0bnsmuNnYfdFCSp4HgAbviprG6x2Tdyf8JAjK++HqVyUQP95n+yzJWVLrSC+qiBPPgWWxUQ7ux3R5Oos+41xb9AHIMHQZSDcjhY8c/OUadEa9zic6P7stK8FZSBJ1LRr1jccTkDiLJY0K/LqivyDwF5RxOORKODMm5WefH0hJrSHub9NnJQ5qsVXnzzDPAa/u58Bs0egKClLFNky2ci+w6Trp9pISxV/jo+boifWxDttMLhHVAHO4KsKhtoLzNTHiy+1U1w+4hWz0/BBm8GkUCIIsiwrjXpbYahHkOPGf2+URV7LO7LSaptGoD7dYmbkQtx4PePIOIOw83P/cEMHAMEzdo7gaJ3N/Nw7ykf3QCNH2pS9McyKLFxmg98tu8BZsq1M7KSfz6sus0N4ZpvujhhEWKqGxwPx8PV4iZu4E4aRzcGiwrNt44DPTmfSan+vlCeyOjiiiEpDRqGegicsREtNoubNmmgUv6XLsHhfvLzQljX1lP9vkrAFH+Vs7NT0vq6+PjMPNnvAdCjubfC1MYBwu21dd5IgTX9Cb5e7VlrI=
+  - coverage run -m pytest -v
+  - coverage report -m --include="sample_backend.py"
