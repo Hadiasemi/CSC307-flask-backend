@@ -1,0 +1,2 @@
+FLASK_APP=sample_backend.py
+FLASK_ENV=development
