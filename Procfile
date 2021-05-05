@@ -1,1 +1,1 @@
-web: gunicorn sample_backend:app
+web: gunicorn csc307_sample_backend:app
