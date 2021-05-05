@@ -1,6 +1,6 @@
 import pymongo
 from bson import ObjectId
-# import dns from dnspython to yuse mongodb+srv URI
+# import dns from dnspython to use mongodb+srv URI
 import dns
 # import os to get env variables
 import os
