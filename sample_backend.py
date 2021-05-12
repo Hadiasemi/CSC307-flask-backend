@@ -25,7 +25,7 @@ users = {
 
 @app.route('/')
 def hello_world():
-    return 'Hello, ddWorld!'
+    return 'Hello, Class!'
 
 # def gen_random_id():
 #   random_id = ''.join([random.choice(string.ascii_letters

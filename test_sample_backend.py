@@ -7,7 +7,7 @@ def test_find_users_by_name_success():
     expected = ([
         {
             '_id': '6009dc44f29c1feab0ec29a4',
-            'name': 'Jeff',
+            'name': 'Mac',
             'job': 'Bouncer',
         },
         {
